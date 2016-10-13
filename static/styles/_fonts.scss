@@ -1,0 +1,22 @@
+@font-face {
+    font-family: 'Mermaid';
+    src: url('/static/fonts/mermaid.eot');
+    src: url('/static/fonts/mermaid.eot?#iefix') format('embedded-opentype'),
+         url('/static/fonts/mermaid.woff2') format('woff2'),
+         url('/static/fonts/mermaid.woff') format('woff'),
+         url('/static/fonts/mermaid.ttf') format('truetype'),
+         url('/static/fonts/mermaid.svg#mermaidbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "SSSocial";
+  src: url('/static/fonts/ss-social-regular.eot');
+  src: url('/static/fonts/ss-social-regular.eot?#iefix') format('embedded-opentype'),
+       url('/static/fonts/ss-social-regular.woff') format('woff'),
+       url('/static/fonts/ss-social-regular.ttf')  format('truetype'),
+       url('/static/fonts/ss-social-regular.svg#SSPika') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

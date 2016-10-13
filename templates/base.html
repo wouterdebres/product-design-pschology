@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% block title %}Product Design Psychology by Wouter de Bres{% endblock %}</title>
+	<link rel="shortcut icon" href="{% static '/images/favicon.png' %}">	
+	<link rel="stylesheet" href="{% static '/styles/main.min.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+	<link rel="alternate" type="application/rss+xml" title="Feed" href="/rss.xml">
+</head>
+<body id="{% block page-id %}sexy{% endblock %}">
+
+	{% block content %}
+		Main content
+	{% endblock content %}
+	
+
+	{% block scripts %}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="{% static '/scripts/main.min.js' %}"></script>
+	{% endblock scripts %}
+</body>
+</html>

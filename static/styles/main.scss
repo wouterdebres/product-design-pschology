@@ -1,0 +1,423 @@
+/*=========================================
+  VARIABLES
+===========================================*/
+
+$baseline:              0.75rem;
+$font-sans:             'Source Sans Pro', sans-serif;
+$font-serif:            'Mermaid', serif;
+$color-main:            rgba(000,118,255,1.00);
+$color-sub:             rgba(000,255,255,0.06);
+$color-gray-dark:       rgba(015,031,044,0.80);
+$color-gray:            rgba(015,031,044,0.60);
+$color-gray-light:      rgba(015,031,044,0.36);
+$color-gray-lighter:    rgba(015,031,044,0.20);
+$color-gray-lightest:   rgba(015,031,044,0.07);
+
+/*=========================================
+  IMPORTS
+===========================================*/
+
+@import "reset";
+@import "fonts";
+
+/*=========================================
+  GENERAL ELEMENTS
+===========================================*/
+
+html{
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: $color-gray;
+  font-family: $font-sans;
+  font-size: $baseline*1.6;
+  font-weight: 400;
+}
+
+/*=========================================
+  HOME
+===========================================*/
+
+#cover{
+  position: fixed;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+  background: $color-main;
+  overflow: hidden;
+
+  .overlay{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2000;
+
+
+    .title{
+      display: inline-block;
+      padding-bottom: $baseline*2;
+
+      h1{
+        font-family: $font-serif;
+        font-size: 6vw;
+        line-height: 1.05em;
+        color: #fff;
+      }
+
+      p{
+        display: block;
+        font-weight: 600;
+        background: url(/static/images/wdeb-logo.svg);
+        background-size: $baseline*2;
+        background-repeat: no-repeat;
+        background-position: center left;
+        padding: $baseline*2 0 $baseline*2 $baseline*3;
+
+
+        a{
+          color: inherit;
+          text-decoration: none;
+          border-bottom: 1px dotted;
+
+          &:hover{
+            border-style: solid;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom{
+    position: absolute;
+    z-index: 2000;
+    bottom: $baseline*4;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+#toc{
+  position: relative;
+  z-index: 3000;
+  background: #fff;
+  left: 50%;
+  width: 50%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrap{
+    flex-basis: $baseline*56;
+    padding: $baseline*4 $baseline*4 $baseline*2;
+    position: relative;
+    z-index: 3000;
+    background: #fff;
+
+    ol{
+      margin: -$baseline/3 0 $baseline*4 0;
+
+      li{
+        position: relative;
+        margin-bottom: $baseline/2;
+
+        a{
+          display: block;
+          height: $baseline*3;
+
+          span{
+            position: relative;
+            z-index: 100;
+            background: #fff;
+            height: $baseline*3;
+
+            &.chapter{
+              line-height: $baseline*3;
+              padding: 0 6px 0 0;
+            }
+
+            &.number{
+              float: right;
+              line-height: $baseline*3;
+              color: $color-gray-light;
+              padding: 0 0 0 6px;
+            }
+          }
+        }
+
+        hr{
+          height: 1px;
+          background: transparent;
+          border: none;
+          border-bottom: 1px dotted $color-gray-lighter;
+          position: absolute;
+          z-index: 1;
+          bottom: 11px;
+          left: 0;
+          right: 0;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+/*=========================================
+  TYPOGRAPHY
+===========================================*/
+
+h1{
+  font-family: $font-serif;
+  font-size: 3.4rem;
+  line-height: 1.1em;
+  color: $color-gray-dark;
+}
+
+h2{
+  font-size: $baseline*2.5;
+  font-weight: 300;
+  margin-bottom: $baseline*1.5;
+}
+
+p{
+  line-height: $baseline*2.5;
+  margin-bottom: $baseline*2;
+
+  &.small{
+    font-size: 80%;
+  }
+
+  &.light{
+    color: $color-gray-light;
+  }
+}
+
+.center{
+  text-align: center;
+}
+
+.ss-social{
+  font-family: "SSSocial";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+}
+
+.end{
+  border: none;
+  height: $baseline*2;
+  background: url(/static/images/wdeb-logo.svg);
+  background-size: $baseline*2;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.3;
+  margin: $baseline*7 0;
+}
+
+
+/*=========================================
+  LINKS & BUTTONS
+===========================================*/
+
+a{
+  color: $color-main;
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
+  }
+
+  &.button{
+    border: 2px solid;
+    padding: 10px $baseline*1.5;
+    display: inline-block;
+    border-radius: 99px;
+    text-align: center;
+    text-decoration: none;
+
+    span{
+      position: relative;
+      bottom: -3px;
+      margin-right: 5px;
+    }
+
+    &.white{
+      color: #fff;
+      border-color: #fff;
+    }
+  }
+}
+
+/*=========================================
+  CHAPTER
+===========================================*/
+
+#chapter{
+  max-width: $baseline*54;
+  margin: 0 auto;
+  padding: $baseline*2 $baseline*2 $baseline*5;
+
+  .context{
+  	position: relative;
+  	z-index: 100;
+
+  }
+
+  header{
+    position: relative;
+    text-align: center;
+    z-index: 0;
+    margin-bottom: $baseline*4;
+
+    h1{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-40%);
+      z-index: 2;
+    }
+
+    .number{
+      font-weight: 700;
+      color: $color-gray-lightest;
+      font-size: 20rem;
+      line-height: 0.7em;
+      position: relative;
+      z-index: 1;
+      user-select: none;
+    }
+
+  }
+
+  article{
+
+  }
+
+  footer{
+    text-align: center;
+    padding: $baseline*4 0 $baseline*10;
+  }
+}
+
+#page-nav{
+  position: fixed;
+  left: $baseline;
+  right: $baseline;
+  bottom: 0;
+  height: $baseline*4;
+  border-top: 1px solid $color-gray-lightest;
+  background: rgba(255,255,255,0.95);
+  
+
+  a{
+    font-size: 80%;
+    display: inline-block;
+    height: $baseline*4;
+    line-height: $baseline*4;
+    padding: 0 $baseline;
+    position: absolute;
+
+    &.prev{
+      left: 0;
+      padding-left: 0;
+    }
+
+    &.go-toc{
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.next{
+      right: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+/*=========================================
+  RESPONSIVE
+===========================================*/
+
+@media (max-width: 900px) {
+
+  #cover{
+    position: relative;
+    right: 0;
+    height: 90vh;
+    min-height: $baseline*36;
+
+    .overlay{
+
+      .title{
+        width: 100%;
+        padding: $baseline*4;
+
+        h1{
+          font-size: 13vw;
+        }
+      }
+    }
+  }
+
+  #toc{
+    left: 0;
+    width: 100%;
+
+    .wrap{
+      padding: $baseline*5 $baseline*4;
+      flex-basis: 100%;
+    }
+  }
+
+  .hide-tab{
+    display: none;
+  }
+}
+
+
+@media (max-width: 600px) {
+  #cover{
+    height: 90vh;
+    min-height: $baseline*30;
+
+    .overlay{
+
+      .title{
+        padding: $baseline*1.5;
+
+        h1{
+          font-size: 16vw;
+        }
+      }
+    }
+  }
+
+  #toc{
+    left: 0;
+    width: 100%;
+
+    .wrap{
+      padding: $baseline*4 $baseline*1.5;
+    }
+  }
+
+  .hide-mob{
+    display: none;
+  }
+}
+
+
+
+
+

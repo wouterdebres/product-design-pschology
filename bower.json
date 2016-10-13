@@ -1,0 +1,16 @@
+{
+  "name": "Boilerplate",
+  "description": "A simple boilerplate to get started",
+  "main": "",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page-id %}page-chapter{% endblock %}
+{% block title %}{{ number }}. {{ title }} &mdash; Product Design Psychology by Wouter de Bres{% endblock title %}
+
+{% block content %}
+<div id="chapter">
+<p class="small light center context"><span class="hide-mob">You are reading </span><a href="/">Product Design Psychology</a> by <a href="">Wouter de Bres</a></p>
+<header>
+<h1>{{ title }}</h1>
+<span class="number">{{ number }}</span>
+</header>
+<article>
+{% block body %}{% endblock body %}
+</article>
+<footer>
+	<a href="#" class="button"><span class="ss-social">Twitter</span> Share on Twitter</a>
+</footer>
+</div><!--/chapter-->
+<div id="page-nav">
+  <a href="/" class="prev">&lsaquo; Chapter 7 <span class="hide-mob hide-tab">&mdash; The importance of Simplicity</span></a>
+  <a href="/" class="go-toc">Contents</a>
+  <a href="/" class="next"><span class="hide-mob hide-tab">User motivation and product purpose &mdash; </span>Chapter 9 &rsaquo;</a>
+</div><!--/page-nav-->
+{% endblock content %}

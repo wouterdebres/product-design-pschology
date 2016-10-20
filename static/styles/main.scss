@@ -37,6 +37,12 @@ body {
   font-weight: 400;
 }
 
+#cover, #toc, #chapter{
+  opacity:0;
+  animation: FadeIn 0.3s 1 forwards ease-in;
+}
+@keyframes FadeIn { from { opacity:0; } to { opacity:1; } }
+
 /*=========================================
   HOME
 ===========================================*/
@@ -47,8 +53,10 @@ body {
   right: 50%;
   bottom: 0;
   left: 0;
-  background: $color-main;
+  background-color: $color-main;
   overflow: hidden;
+
+
 
   .overlay{
     width: 100%;
@@ -283,9 +291,13 @@ a{
 
     h1{
       position: absolute;
+      display: block;
+      width: 100%;
       top: 50%;
       transform: translateY(-40%);
       z-index: 2;
+      text-align: center;
+
     }
 
     .number{
@@ -302,6 +314,23 @@ a{
 
   article{
 
+    figure{
+      display: block;
+      margin: $baseline ($baseline*-4) $baseline*2;
+
+      img{
+      	margin: auto;
+        display: block;
+        background: $color-gray-lightest;
+      }
+
+      figcaption{
+         @extend p.small;
+         @extend p.light;
+         text-align: center;
+         margin-top: $baseline;
+      }
+    }
   }
 
   footer{
@@ -321,7 +350,7 @@ a{
   
 
   a{
-    font-size: 80%;
+    @extend p.small;
     display: inline-block;
     height: $baseline*4;
     line-height: $baseline*4;
@@ -380,6 +409,13 @@ a{
     }
   }
 
+  #chapter article{
+    figure{
+      margin-left: -$baseline;
+      margin-right: -$baseline;
+    }
+  }
+
   .hide-tab{
     display: none;
   }
@@ -418,6 +454,9 @@ a{
 }
 
 
+/*=========================================
+  ANIMATIONS
+===========================================*/
 
 
 

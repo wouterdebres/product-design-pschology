@@ -100,6 +100,19 @@ body {
   font-weight: 400;
 }
 
+#cover, #toc, #chapter {
+  opacity: 0;
+  animation: FadeIn 0.3s 1 forwards ease-in;
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /*=========================================
   HOME
 ===========================================*/
@@ -109,7 +122,7 @@ body {
   right: 50%;
   bottom: 0;
   left: 0;
-  background: #0076ff;
+  background-color: #0076ff;
   overflow: hidden;
 }
 #cover .overlay {
@@ -241,10 +254,10 @@ p {
   line-height: 1.875rem;
   margin-bottom: 1.5rem;
 }
-p.small {
+p.small, #chapter article figure figcaption, #page-nav a {
   font-size: 80%;
 }
-p.light {
+p.light, #chapter article figure figcaption {
   color: rgba(15, 31, 44, 0.36);
 }
 
@@ -323,9 +336,12 @@ a.button.white {
 }
 #chapter header h1 {
   position: absolute;
+  display: block;
+  width: 100%;
   top: 50%;
   transform: translateY(-40%);
   z-index: 2;
+  text-align: center;
 }
 #chapter header .number {
   font-weight: 700;
@@ -338,6 +354,19 @@ a.button.white {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+#chapter article figure {
+  display: block;
+  margin: 0.75rem -3rem 1.5rem;
+}
+#chapter article figure img {
+  margin: auto;
+  display: block;
+  background: rgba(15, 31, 44, 0.07);
+}
+#chapter article figure figcaption {
+  text-align: center;
+  margin-top: 0.75rem;
 }
 #chapter footer {
   text-align: center;
@@ -354,7 +383,6 @@ a.button.white {
   background: rgba(255, 255, 255, 0.95);
 }
 #page-nav a {
-  font-size: 80%;
   display: inline-block;
   height: 3rem;
   line-height: 3rem;
@@ -402,6 +430,11 @@ a.button.white {
         flex-basis: 100%;
   }
 
+  #chapter article figure {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+
   .hide-tab {
     display: none;
   }
@@ -430,3 +463,6 @@ a.button.white {
     display: none;
   }
 }
+/*=========================================
+  ANIMATIONS
+===========================================*/

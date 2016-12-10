@@ -12,13 +12,22 @@
 <article>
 {% block body %}{% endblock body %}
 </article>
+<div class="share"><a href="/" class="button"><span class="ss-social">Twitter</span> Share on Twitter</a></div>
 <footer>
-	<a href="#" class="button"><span class="ss-social">Twitter</span> Share on Twitter</a>
+	<a href="htp://twitter.com/wdeb" class="author"><img src="{% static '/images/wouter-de-bres.jpg' %}" alt="Wouter de Bres" width="72" height="72"/></a>
+	<p>If you have any questions about this chapter or if you just want to connect, I am <a href="https://twitter.com/wdeb">@WdeB on Twitter</a> 
 </footer>
+<div class="bg-img"></div>
 </div><!--/chapter-->
 <div id="page-nav">
+  {% block prev-chapter %}
   <a href="/" class="prev">&lsaquo; Chapter 7 <span class="hide-mob hide-tab">&mdash; The importance of Simplicity</span></a>
+  {% endblock %}
+
   <a href="/" class="go-toc">Contents</a>
+
+  {% block next-chapter %}
   <a href="/02-learning-design.html" class="next"><span class="hide-mob hide-tab">Learning Design &mdash; </span>Chapter 2 &rsaquo;</a>
+  {% endblock %}
 </div><!--/page-nav-->
 {% endblock content %}

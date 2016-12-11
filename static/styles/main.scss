@@ -53,8 +53,8 @@ body {
   right: 50%;
   bottom: 0;
   left: 0;
-  background: linear-gradient(-30deg, #00bbFF , #0055FF); 
-  //background-color: $color-main;
+  //background: linear-gradient(-30deg, #00bbFF , #0055FF); 
+  background-color: $color-main;
   overflow: hidden;
 
 
@@ -117,56 +117,71 @@ body {
     left: 0;
     right: 0;
 
-    .shape-1{
-      width: 2%;
-      height: 0;
+    .shape {
       position: absolute;
-      top: -140vh;
-      right: -25vw;
-      border-bottom: 300vh solid rgba(0,255,170,0.25);
-      border-left: 45vw solid transparent;
-      border-right: 45vw solid transparent;
-      height: 0;
-      width: 560px;
-      transform: rotate(45deg);
-    }
+      left: 50%;
+      top: 45%;
+      margin: -38vh 0 0 -38vh;
+      width: 76vh;
+      height: 76vh;
+      border: 1px solid rgba(0,255,255,0.35);
+      background: rgba(0,255,255,0.02);
+      border-radius: 115% 140% 145% 110%/125% 140% 110% 125%;
 
-    .shape-2{
-      width: 2%;
-      height: 0;
-      position: absolute;
-      top: -140vh;
-      left: -25vw;
-      border-bottom: 300vh solid rgba(255,0,255,0.25);
-      border-left: 45vw solid transparent;
-      border-right: 45vw solid transparent;
-      height: 0;
-      width: 560px;
-      transform: rotate(-45deg);
-    }
-
-    .shape-3{
-
+      &:nth-child(1) {
+          animation: spin1 24s linear infinite;
+      }
+      &:nth-child(2) {
+          animation: spin2 24s linear infinite;
+      }
+      &:nth-child(3) {
+          animation: spin3 24s linear infinite;
+      }
+      &:nth-child(4) {
+          animation: spin4 24s linear infinite;
+      }
     }
   }
 }
 
-@keyframes breathe{
-  0% {
-    filter: blur(0px);
-    opacity: 1;
-    
-  }
-  50% {
-    filter: blur(0px);
-    transform: scale(1.0,1.0) translateY(-5vh);
-    opacity: 1;
-  }
-  100% {
-    filter: blur(0px);
-    opacity: 1;
-  }
+@keyframes spin1 {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(72deg);
+    }
+    100% {
+        transform: rotate(-288deg);
+    }
+}
+
+@keyframes spin3 {
+    0% {
+        transform: rotate(-144deg);
+    }
+    100% {
+        transform: rotate(216deg);
+    }
+}
+
+@keyframes spin4 {
+    0% {
+        transform: rotate(216deg);
+    }
+    100% {
+        transform: rotate(-144deg);
+    }
+}
+
+
+
 
 #toc{
   position: relative;
@@ -570,123 +585,5 @@ a{
 }
 
 
-/*=========================================
-  ANIMATIONS
-===========================================*/
-.cover-art {
-  position: absolute;
-  z-index: -2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-
-  ul {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-
-    li {
-      position: absolute;
-      display: block;
-      width: $baseline;
-      height: $baseline;
-      border-radius: 100%;
-      background-color: rgba(255, 255, 255, 0.15);
-      left: 0;
-      top: 0;
-      animation: flow 20s infinite;
-      transition-timing-function: linear;
-      filter: blur(4px);
-
-      &:nth-child(1) {
-        animation-delay: 0s;
-      }
-
-      &:nth-child(2) {
-        left: $baseline*2;
-        animation-delay: 0.1s;
-      }
-
-      &:nth-child(3) {
-        left: $baseline*4;
-        animation-delay: 0.2s;
-      }
-
-      &:nth-child(4) {
-        left: $baseline*6;
-        animation-delay: 0.3s;
-      }
-
-      &:nth-child(5) {
-        left: $baseline*8;
-        animation-delay: 0.4s;
-      }
-
-      &:nth-child(6) {
-        left: $baseline*10;
-        animation-delay: 0.5s;
-      }
-
-      &:nth-child(7) {
-        left: $baseline*12;
-        animation-delay: 0.6s;
-      }
-
-      &:nth-child(8) {
-        left: $baseline*14;
-        animation-delay: 0.7s;
-      }
-
-      &:nth-child(9) {
-        left: $baseline*16;
-        animation-delay: 0.8s;
-      }
-
-      &:nth-child(10) {
-        left: $baseline*18;
-        animation-delay: 0.9s;
-      }
-    }
-  }
-
-  &.two {
-    left: 10%;
-
-    ul li{
-      top: 10%;
-    }
-  }
-
-  &.three {
-
-    ul li{
-      top: 20%;
-    }
-  }
-
-  &.four {
-
-    ul li{
-    }
-  }   
-}
-
-
-@keyframes flow {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(50vh) rotate(900deg);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 
 

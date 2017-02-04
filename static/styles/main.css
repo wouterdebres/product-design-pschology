@@ -171,7 +171,8 @@ body {
   width: 100%;
   text-align: center;
 }
-#cover .cover-art {
+
+.art {
   position: absolute;
   z-index: 2;
   top: 0;
@@ -179,27 +180,27 @@ body {
   left: 0;
   right: 0;
 }
-#cover .cover-art .shape {
+.art .shape {
   position: absolute;
   left: 50%;
   top: 45%;
-  margin: -38vh 0 0 -38vh;
-  width: 76vh;
-  height: 76vh;
+  width: 40vw;
+  height: 40vw;
+  margin: -20vw 0 0 -20vw;
   border: 1px solid rgba(0, 255, 255, 0.35);
-  background: rgba(0, 255, 255, 0.02);
+  background: rgba(0, 255, 255, 0);
   border-radius: 115% 140% 145% 110%/125% 140% 110% 125%;
 }
-#cover .cover-art .shape:nth-child(1) {
+.art .shape:nth-child(1) {
   animation: spin1 24s linear infinite;
 }
-#cover .cover-art .shape:nth-child(2) {
+.art .shape:nth-child(2) {
   animation: spin2 24s linear infinite;
 }
-#cover .cover-art .shape:nth-child(3) {
+.art .shape:nth-child(3) {
   animation: spin3 24s linear infinite;
 }
-#cover .cover-art .shape:nth-child(4) {
+.art .shape:nth-child(4) {
   animation: spin4 24s linear infinite;
 }
 
@@ -302,7 +303,7 @@ body {
 ===========================================*/
 h1 {
   font-family: "Mermaid", serif;
-  font-size: 4.4rem;
+  font-size: 8vw;
   line-height: 1.1em;
   color: rgba(15, 31, 44, 0.8);
 }
@@ -322,6 +323,50 @@ p.small, #chapter article figure figcaption, #page-nav a {
 }
 p.light, #chapter article figure figcaption {
   color: rgba(15, 31, 44, 0.4);
+}
+
+article p:first-child:first-letter {
+  color: #fff;
+  background: rgba(15, 31, 44, 0.8);
+  float: left;
+  font-size: 2.1rem;
+  line-height: 3rem;
+  border-radius: 6px;
+  font-weight: 700;
+  display: block;
+  height: 3rem;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  margin: 8px 8px 0 0;
+  padding: 0 15px;
+}
+
+blockquote {
+  padding: 0;
+  position: relative;
+  border-left: 12px solid rgba(15, 31, 44, 0.8);
+  margin: 0 0 24px;
+}
+blockquote p {
+  font-family: "Mermaid", serif;
+  font-size: 2.125rem;
+  line-height: 2.4rem;
+  color: rgba(15, 31, 44, 0.8);
+  padding: 16px 0 9px 24px;
+  margin: 0;
+  display: inline-block;
+}
+blockquote::before {
+  content: '\0022';
+  display: block;
+  font-family: "Mermaid", serif;
+  font-size: 37.5rem;
+  color: rgba(15, 31, 44, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .center {
@@ -383,8 +428,6 @@ a.button.white {
   CHAPTER
 ===========================================*/
 #chapter {
-  max-width: 42rem;
-  margin: 0 auto;
   padding: 1.5rem 1.5rem 3.75rem;
 }
 #chapter .context {
@@ -395,28 +438,31 @@ a.button.white {
   position: relative;
   text-align: center;
   z-index: 0;
-  margin-bottom: 3rem;
+  margin: 0 0 3rem;
 }
 #chapter header h1 {
   position: absolute;
   display: block;
   width: 100%;
   top: 50%;
-  transform: translateY(-40%);
+  transform: translateY(-50%);
   z-index: 2;
   text-align: center;
 }
 #chapter header .number {
   font-weight: 700;
-  color: #fff;
+  color: #0076ff;
+  -webkit-filter: blur(14px);
+          filter: blur(14px);
+  opacity: 0.2;
   font-size: 17rem;
   line-height: 0.7em;
   position: relative;
   z-index: 1;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+}
+#chapter article {
+  max-width: 42rem;
+  margin: 0 auto;
 }
 #chapter article figure {
   display: block;
@@ -451,21 +497,6 @@ a.button.white {
 }
 #chapter footer .author img {
   border-radius: 100%;
-}
-#chapter .bg-img {
-  position: fixed;
-  z-index: -2;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: url(/static/images/cover.png);
-  background-size: 700px;
-  background-repeat: no-repeat;
-  background-position: center -60px;
-  opacity: 0.10;
-  -webkit-filter: blur(0px);
-          filter: blur(0px);
 }
 
 #page-nav {
@@ -509,12 +540,13 @@ a.button.white {
     height: 90vh;
     min-height: 34.5rem;
   }
-  #cover .overlay .title {
-    width: 100%;
-    padding: 3rem;
-  }
   #cover .overlay .title h1 {
     font-size: 13vw;
+  }
+  #cover .art .shape {
+    width: 80vw;
+    height: 80vw;
+    margin: -40vw 0 0 -40vw;
   }
 
   #toc {
@@ -536,16 +568,24 @@ a.button.white {
     display: none;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   #cover {
     height: 90vh;
     min-height: 22.5rem;
   }
-  #cover .overlay .title {
-    padding: 1.125rem;
-  }
   #cover .overlay .title h1 {
-    font-size: 16vw;
+    font-size: 14vw;
+  }
+  #cover .art .shape {
+    width: 94vw;
+    height: 94vw;
+    margin: -47vw 0 0 -47vw;
+  }
+
+  .art .shape {
+    margin: -33vh 0 0 -33vh;
+    width: 66vh;
+    height: 66vh;
   }
 
   #toc {
